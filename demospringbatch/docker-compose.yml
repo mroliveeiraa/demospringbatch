@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:latest
+    container_name: meu-postgres
+    restart: always
+    environment:
+      POSTGRES_USER: usuario
+      POSTGRES_PASSWORD: senha
+      POSTGRES_DB: meu_banco
+    volumes:
+      - ./dados.sql:/docker-entrypoint-initdb.d/dados.sql
+    ports:
+      - "5432:5432"
